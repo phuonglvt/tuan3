@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tìm giá trị nhỏ nhất của mảng</title>
+</head>
+<body>
+<script>
+    let arr1 = [3,5,1,8,-3,7,8];
+    let min = minArray(arr1);
+    alert(min);
+    function minArray(arr1) {
+        let min = arr1[0];
+        for(let i=1;i<arr1.length;i++){
+            if (arr1[i] < min){
+                min = arr1[i];
+            }
+        }
+        alert("min arr1 is: " + min)
+    }
+</script>
+<script>
+    let arr2 = [7, 12, 6, 9, 20, 56, 89];
+    let max = maxArray(arr2);
+    alert(max);
+    function maxArray(arr2) {
+        let max = arr2[0];
+        for (let k=1;k<arr2.length;k++){
+            if (arr2[k] > max){
+                max = arr2[k];
+            }
+        }
+        alert("max arr2 is: " + max)
+    }
+</script>
+<script>
+    let arr3 = [];
+    let min = minArray(arr3);
+    alert(min);
+    function minArray(arr3) {
+        if (arr3.length === 0){
+            return -1;}
+        let min = arr3[0];
+        for (let l=1;l<arr3.length;l++) {
+            if (arr3[l]<min){
+                min = arr3[l];
+            }
+        }
+        alert("min arr3 is: " + min)
+    }
+</script>
+</body>
+</html>
