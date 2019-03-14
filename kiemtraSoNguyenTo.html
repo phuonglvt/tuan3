@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var snt = 10000;
+    for (let i = 0; i<snt; i++){
+        if (isPrime(i)==true){
+            document.write(i+" ");
+        }
+    }
+    function isPrime(snt) {
+        if (snt<2){
+            return false;
+        } else {
+            for (let i =2; i<snt; i++){
+                if (snt%i==0){
+                    return false;
+                }
+            }
+        } return true;
+    }
+</script>
+</body>
+</html>
