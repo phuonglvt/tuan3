@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tính diện tích và chu vi hình tròn</title>
+</head>
+<body>
+<script>
+    var bankinh = prompt("nhap vao ban kinh hinh tron");
+    var dientich = Math.PI*Math.pow(bankinh,2);
+    alert("diện tích hình tròn là: " + dientich);
+    var chuvi = Math.PI*2*bankinh;
+    alert("chu vi hình tròn là: " + chuvi);
+    function dientich(r) {
+       return Math.PI *r*r;
+    }
+    function chuvi(num) {
+        return Math.PI*2*num;
+    }
+</script>
+</body>
+</html>
