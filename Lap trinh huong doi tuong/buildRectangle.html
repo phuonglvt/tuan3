@@ -2,15 +2,19 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Build Rectangle</title>
 </head>
-<body>
+<body onload="drawShape();">
+<canvas id="mycanvas"></canvas>
 <script>
-    let Circle = function(radius) {
-
-        this.radius = radius;
-
-    };
+        function drawShape(){
+            var canvas = document.getElementById('mycanvas');
+            if (canvas.getContext){
+                var ctx = canvas.getContext('2d');
+                ctx.fillRect(25,25,100,200);
+                ctx.clearRect(45,45,60,80);
+            }
+        }
 </script>
 </body>
 </html>
