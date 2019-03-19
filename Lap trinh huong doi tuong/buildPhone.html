@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mobile</title>
+</head>
+<body>
+<h3>Hiển Thị Điện Thoại</h3>
+
+<h4>Samsung Neo9</h4>
+
+<p id="hienthidienthoai"></p>
+<p id="trangthai"></p>
+
+<div>
+    <input type="submit" name="" id="samsung" value="BatTatSamsung" onclick="batTatSamsung(this.value)">
+    <input type="button" id="thuDi" onclick="hopThuDi1()" value="Hộp Thư Đi">
+    <input type="button" id="thuDen" onclick="hopThuDen1()" value="Hộp Thư Đến">
+</div>
+
+<div>
+    <input type="text" id="soantin" placeholder="soạn tin nhắn">
+    <button onclick="guiTin1()">Gửi</button>
+</div>
+
+<div><p id="hienthihopthudi1"></p></div>
+<div><p id="hienthihopthuden1"></p></div>
+
+<h4>Oppo F9</h4>
+
+    <p id="hienthidt"></p>
+    <p id="tt"></p>
+
+<div>
+    <input type="submit" name="" id="oppo" value="BatTatOppo" onclick="batTatOppo(this.value)">
+    <input type="button" id="thuDi1" onclick="hopThuDi2()" value="Hộp Thư Đi">
+    <input type="button" id="thuDen1" onclick="hopThuDen2()" value="Hộp Thư Đến">
+</div>
+
+<div>
+    <input type="text" id="soantin1" placeholder="soạn tin nhắn">
+    <button onclick="guiTin2()">Gửi</button>
+</div>
+
+<div><p id="hienthihopthudi2"></p></div>
+<div><p id="hienthihopthuden2"></p></div>
+
+<script>
+    class Mobile {
+        constructor(type, battery, status) {
+            this.type = type;
+            this.battery = battery;
+            this.status = status;
+            this.messageSend = [];
+            this.edit = [];
+            this.messageAccept = [];
+        }
+        Status1() {
+            if (this.status) {
+                document.getElementById("trangthai").innerHTML = "Đang online";
+            } else {
+                document.getElementById("trangthai").innerHTML = "Đang offline";
+            }
+        }
+
+        Status2 (){
+            if (this.status) {
+                document.getElementById("trangthai").innerHTML = "Đang online";
+            } else {
+                document.getElementById("trangthai").innerHTML = "Đang offline";
+            }
+        }
+
+        batTatDienThoai(){
+            if (this.status){
+                this.status = false;
+            }else{
+                this.status = true;
+            }
+        }
+
+        sacPin(){
+            if(this.pin <= 95){
+                do{
+                    this.pin +=1;
+                }
+                while(this.pin < 100);
+            }
+            return this.pin;
+        }
+
+        pinTru(){
+            this.pin = this.pin - 1;
+            return this.pin;
+        }
+
+        tinDi(nguoinhan,messenger){
+            if(this.trangthai){
+                document.write(nguoinhan + messenger + "<br>");
+            this.hopthudi.push(messenger);
+            	this.pin = this.pin -1;
+            	}
+        }
+    }
+
+    var samsung = new Mobile('Samsung Neo9',95,true);
+    var oppo = new Mobile("Oppo F9",97,false);
+    document.getElementById('hienthidienthoai').innerHTML = samsung.type + "&emsp;" + samsung.sacPin() + "%";
+    samsung.Status1();
+    document.getElementById('hienthidienthoai').innerHTML = oppo.type + "&emsp;" + oppo.sacPin() + "%";
+
+    function onOffSamsung(value1) {
+        if (value1 === "onOffSamsung"){
+            samsung.onOffSamsung();
+        }
+        samsung.Status1();
+    }
+
+    function onOffOppo(value2) {
+        if (value2 === "onOffOppo"){
+            oppo.onOffOppo();
+        }
+        oppo.Status2();
+    }
+    var hopthudi1 = new Array();
+    var hopthuden1= new Array();
+    var hopthudi2 = new Array();
+    var hopthuden2 = new Array();
+
+    function  guiTin1(){
+        if(samsung.status){
+            var messenger1 = document.getElementById("soantin1").value;
+            document.getElementById("thuDi1").value = "Hộp thư đi " + "("+hopthudi1.push(tinnhan1)+")";
+            document.getElementById("thuDen1").value = "Hộp thư đến " + "("+hopthuden1.push(tinnhan1)+")";
+            document.getElementById("hienthidienthoai").innerHTML = samsung.type + "&emsp;" + samsung.pinTru() + "%";
+            samsung.sacPin();
+        }else {
+            document.getElementById("thuDi1").value = "Hộp thư đi";
+            document.getElementById("thuDen1").value = "";
+            document.getElementById("hienthidienthoai").innerHTML ="";
+        }
+    }
+    function hopThuDi1(){
+        if(samsung.status){
+            document.getElementById("hienthihopthudi1").innerHTML = "<b>Hộp thư gửi đi</b>" + "<br>" + hopthudi1;
+        }
+    }
+    function hopThuDen1(){
+        if(samsung.status){
+            document.getElementById("hienthihopthuden1").innerHTML = "<b>Hộp thư gửi đến</b>" + "<br>" + hopthudi2;
+        }
+    }
+
+    function guitin2() {
+        if (oppo.status){
+            var messenger2 = document.getElementById("soantin2").value;
+            document.getElementById("thuDi2").value = "Hộp thư đi" + "("+hopthudi2.push(tinnhan2)+")";
+            document.getElementById("thuDen2").value = "Hộp thư đến" + "("+hopthuden2.push(tinnhan2)+")";
+            document.getElementById("hienthidienthoai").innerHTML = oppo.type +  "&emsp;" + oppo.pinTru() + "%";
+            oppo.sacPin();
+        } else {
+            document.getElementById("thuDi1").value = "Hộp thư đi";
+            document.getElementById("thuDen2").value = "";
+            document.getElementById("hienthidienthoai").innerHTML ="";
+        }
+    }
+    function hopThuDi2() {
+        if (oppo.status) {
+            document.getElementById("hienthihopthudi1").innerHTML = "<b>Hộp thư gửi đi</b>" + "<br>" + hopthudi2;
+        }
+    }
+    function hopThuDen2() {
+        if (oppo.status){
+            document.getElementById("hienthihopthuden2").innerHTML = "<b>Hộp thư gửi đến</b>" + "<br>" + hopthudi1
+        }
+    }
+</script>
+</body>
+</html>
